@@ -24,3 +24,11 @@ jobs:
       run: chmod +x gradlew
     - name: Build with Gradle
       run: ./gradlew build
+    - name: Set workflow status to failure if build fails
+      if: ${{ steps.build.outcome == 'failure' }}
+      run: |
+        if [[ ${{ steps.build.outcome }} == "failure" ]]; then
+          echo "::set-output name=status::failure"
+        else
+          echo "::set-output name=status::success"
+        fi
