@@ -43,6 +43,5 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 fun GreetingPreview() {
     Actions_test_projTheme {
         Greeting("Android")
-        
     }
 }
